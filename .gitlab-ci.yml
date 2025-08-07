@@ -1,0 +1,54 @@
+stages:
+  - build
+
+# Build template
+.template_build: &template_build
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  variables:
+    TARGET_IMAGE_TAG: ""
+  tags:
+    - erp-dev
+  script:
+    - echo $DOCKER_CFG > /kaniko/.docker/config.json
+    - export TARGET_IMAGE="$REGISTRY_FRONTIIR/$CI_PROJECT_PATH:$TARGET_IMAGE_TAG"
+    - echo "Building container image [ $TARGET_IMAGE ]..."
+    - >-
+      /kaniko/executor
+      --context $CI_PROJECT_DIR
+      --dockerfile $CI_PROJECT_DIR/Dockerfile
+      --destination $TARGET_IMAGE
+      --skip-tls-verify
+      --cache=true
+      --cleanup
+
+# Build jobs
+build-master:
+  <<: *template_build
+  variables:
+    TARGET_IMAGE_TAG: latest
+  only:
+    refs:
+      - master
+
+build-tag:
+  <<: *template_build
+  variables:
+    TARGET_IMAGE_TAG: "$CI_COMMIT_TAG"
+  only:
+    refs:
+      - tags
+
+
+build-dev:
+  <<: *template_build
+  variables:
+    TARGET_IMAGE_TAG: "$CI_COMMIT_REF_SLUG"
+  only:
+    refs:
+      - dev-master
+
+
+

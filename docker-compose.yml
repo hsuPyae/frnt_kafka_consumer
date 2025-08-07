@@ -1,0 +1,9 @@
+version: '3'
+services:
+  kafka:
+    container_name: kafka_consumer
+    build: .
+    ports:
+      - 8080:8080
+    volumes:
+      - "./consumer-log:/var/log/consumer"

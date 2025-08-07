@@ -1,0 +1,17 @@
+.vscode
+.venv
+isp-erp.git/
+*.conf
+*.pyc
+*.py~
+*.xml~
+*.zip
+*.rar
+*.tar
+*.tar.gz
+*.log
+
+**/odoo-data/*
+**/odoo-logs/*
+**/pg-logs/*
+.python-version

@@ -1,0 +1,96 @@
+[wallet_journal]
+topic = wallet_journal
+group_id = erpdev
+endpoint = http://127.0.0.1:8069/v1/consumer
+timeout = 3
+max_records = 1000
+username = admin
+password = admin-secret
+active = True
+auth_header = API_KEY
+token = frontiir
+is_rpc = True
+odoo_model = data.sync
+odoo_method = rpc_consumer
+message_only = False
+
+
+[erp_loan_status]
+topic = erp_loan_status
+group_id = erpdev
+endpoint = http://127.0.0.1:8069/v1/consumer
+timeout = 3
+max_records = 1
+username = admin
+password = admin-secret
+active = True
+auth_header = API-KEY
+token = frontiir
+is_rpc = True
+odoo_model = frnt_loan.sync
+odoo_method = action_consume_status
+message_only = False
+
+[erp_loan_apply]
+topic = erp_loan_apply
+group_id = erpdev
+endpoint = http://127.0.0.1:8069/v1/consumer
+timeout = 3
+max_records = 2
+username = admin
+password = admin-secret
+active = True
+auth_header = API-KEY
+token = frontiir
+is_rpc = True
+odoo_model = frnt_loan.sync
+odoo_method = action_consume_apply
+message_only = False
+
+[wallet_bill_cancel]
+topic = wallet_bill_cancel
+group_id = erpdev
+endpoint = http://127.0.0.1:8069/v1/consumer
+timeout = 3
+max_records = 2
+username = admin
+password = admin-secret
+active = True
+auth_header = API-KEY
+token = frontiir
+is_rpc = True
+odoo_model = frontiir.account.payment
+odoo_method = erp_bill_cancel
+message_only = False
+
+[PayWithWave]
+topic = PayWithWave
+group_id = bss.inbox
+endpoint = http://localhost:8100/api/v1/billing/payments
+timeout = 1
+max_records = 1
+username = admin
+password = admin-secret
+active = True
+auth_header = Authorization
+token = Bearer 1234567
+is_rpc = False
+odoo_model = frontiir.account.payment
+odoo_method = erp_bill_cancel
+message_only = True
+
+[miko.sale.poi_done]
+topic = miko.sale.poi_done
+group_id = erpdev
+endpoint = http://127.0.0.1:8069/v1/consumer
+timeout = 3
+max_records = 2
+username = erp13user
+password = Fr0nt!!rerp13
+active = True
+auth_header = API-KEY
+token = frontiir
+is_rpc = True
+odoo_model = frnt_subscription.subscription
+odoo_method = action_consume_relocation
+message_only = False

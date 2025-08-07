@@ -1,0 +1,25 @@
+[kafka]
+settings = {'bootstrap_servers':['0.0.0.0:9092'],'auto_offset_reset':'earliest','enable_auto_commit': False,'asks_arg':1,'poll_timeout_sec':1,'consumer_timeout_sec':5,'security_protocol':'SASL_PLAINTEXT','sasl_mechanism':'PLAIN'}
+
+[logging]
+path = /var/log/consumer/
+max_bytes = 1024
+backup_count = 0
+[webui]
+port = 8000
+host = loalhost
+
+[xmlrpc]
+url = http://{}:{}
+obj_rpc = {}/xmlrpc/2/object
+obj_common = {}/xmlrpc/2/common
+
+[odoo]
+odoo_server = localhost
+odoo_port = 8069
+odoo_db = qac13
+odoo_user = admin
+odoo_password = admin
+
+[api]
+api_skiped_code = [422]

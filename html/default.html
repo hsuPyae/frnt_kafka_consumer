@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TITLE_HERE</title>
+    <style>
+        a{
+            text-decoration: none;
+        }
+        li > a{
+            color: cornflowerblue;
+            padding: 5px;
+            text-decoration: none;
+            background-color: bisque;
+        }
+        .button-a{
+            color: cornflowerblue;
+            padding: 5px;
+            text-decoration: none;
+            background-color: bisque;         
+        }
+        li{
+            margin: 0;
+            margin-left: 10px;
+        }
+        div.navigator{
+            justify-content: space-around;
+            display: flex;
+            background-color: grey;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            align-items: center;
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+        }
+        ul.navigator{
+            list-style-type: none;
+            justify-content: space-between;
+            display: flex;
+        }
+        .navigator{
+            margin: 0;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .log-file{
+            margin: 10px 0;
+            border-radius: 3px;
+            font-size: small;
+        }
+        .log-line{
+            margin: 0;
+            padding: 0;
+        }
+        span{
+            font-size: small;
+        }
+        .info{
+            color: #4caf50;
+        }
+        .error{
+            color: #dc3545;
+        }
+        .warning{
+            color: #ffc107;
+        }
+        .container{
+            padding: 10px;
+            vertical-align: baseline;
+            font-size: small;
+        }
+        .flex-container{
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+        }
+        .header{
+            padding: 20;
+            margin-top: 10px;
+            background-color: #F1F1F3;
+        }
+        .topic-field{
+            width: 100px;
+            text-align: center;
+        }
+        .topic-field.max_records{
+            width: 120px;
+        }
+        .topic-field.username{
+            width: 110px;
+        }
+        .topic-field-endpoint{
+            width: 350px;
+            font-size: smaller;
+        }
+        .topic-field-header{
+            font-weight: bold;
+            font-size: medium;
+            color: green;
+        }
+        .edit-field{
+            width: 50px;
+        }
+        .pid{
+            width: 50px;
+        }
+        input{
+            margin-bottom: 10px;
+        }
+        select{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var length = 0;
+        window.setInterval(function() {
+            var new_length = document.querySelectorAll('.log-line').length;
+            if (length != new_length){
+                window.scrollTo(0,1000000);
+                length = new_length;
+            }
+            }, 300);
+    </script>
+    <div class="navigator">
+        <h2 class="navigator"><a href="/home">Kafka Consumer</a></h2>
+        <ul class="navigator">
+            <!-- <li><a href="/create">Add Topic</a></li> -->
+            <li><a href="/logs">Logs</a></li>
+        </ul>
+    </div>
+    DATA_HERE
+</body>
+</html>
